@@ -1,5 +1,0 @@
-<resources>
-    <string name="app_name">Login</string>
-    <string name="account_empty">用户名为空，请重新输入！</string>
-    <string name="pwd_empty">密码为空，请重新输入！</string>
-</resources>
