@@ -1,10 +1,5 @@
 package com.example.login;
 
-/**
- * Created by 王梓豪 on 2017/12/5.
- */
-
-
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
