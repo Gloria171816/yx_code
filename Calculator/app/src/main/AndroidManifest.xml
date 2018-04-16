@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".JinzhiZhuanhuan" />
+        <activity android:name=".Danwei"></activity>
     </application>
 
 </manifest>

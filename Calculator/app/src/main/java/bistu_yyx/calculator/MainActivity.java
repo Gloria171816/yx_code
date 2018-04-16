@@ -22,6 +22,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.help:
                 Toast.makeText(MainActivity.this,"This is a hlep",Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.danwei:
+                Intent intent1 = new Intent(MainActivity.this,Danwei.class);
+                startActivity(intent1);
+                break;
             case R.id.exit:
                 finish();
                 break;
@@ -84,12 +88,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCos = (Button)findViewById(R.id.cos);
         btnx2 = (Button)findViewById(R.id.x2);
         btnx3 = (Button)findViewById(R.id.x3);
+        btnSqrt = (Button)findViewById(R.id.sqrt);
+        btnLeft = (Button)findViewById(R.id.left);
+        btnRight = (Button)findViewById(R.id.right);
         btnAdd = (Button)findViewById(R.id.plus) ;
         btnSub = (Button)findViewById(R.id.minus);
         btnMul = (Button)findViewById(R.id.multi) ;
         btnDiv = (Button)findViewById(R.id.div);
         btnDot = (Button)findViewById(R.id.dot);
         btnEqu = (Button)findViewById(R.id.equals);
+        btnPlu = (Button)findViewById(R.id.plusorminus);
         editText = (EditText)findViewById(R.id.result_main) ;
 
 
@@ -150,7 +158,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 editText.setText(input);
             }
         });
-
+        this.btnSqrt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                input = editText.getText().toString();
+                input += "√";
+                editText.setText(input);
+            }
+        });
+        this.btnLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                input = editText.getText().toString();
+                input += "(";
+                editText.setText(input);
+            }
+        });
+        this.btnRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                input = editText.getText().toString();
+                input +=")";
+                editText.setText(input);
+            }
+        });
         this.btnAdd.setOnClickListener(this);
 
         this.btnSub.setOnClickListener(new View.OnClickListener() {
@@ -194,6 +225,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 editText.setText(input);
             }
         });
+        this.btnPlu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                input = editText.getText().toString();
+                double d =  Double.parseDouble(input);
+                d=d*(-1);
+                input = String.valueOf(d);
+                editText.setText(input);
+            }
+        });
     }
 
     @Override
@@ -210,7 +251,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         input = input + string;
         editText.setText(input);
     }
-
-
-
 }
