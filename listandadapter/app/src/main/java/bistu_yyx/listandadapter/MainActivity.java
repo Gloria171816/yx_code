@@ -12,7 +12,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
     private ListView list;
     private static final String NAME = "name";
-    private static final String PRICE = "price";
+    private static final String NUMBER = "number";
     private static final String DETAIL = "detail";
 
 
@@ -29,17 +29,17 @@ public class MainActivity extends AppCompatActivity {
 
         int size = 10;
         String[] names = new String[size];
-        String[] prices = new String[size];
+        String[] numbers = new String[size];
         String[] details = new String[size];
         List<Map<String, String>> items = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             names[i] = NAME + i;
-            prices[i] = PRICE + i;
+            numbers[i] = NUMBER + i;
             details[i] = DETAIL + i + " " + DETAIL + i + " " + DETAIL + i + " " + DETAIL + i;
 
             HashMap<String, String> map = new HashMap<>();
             map.put(NAME, names[i]);
-            map.put(PRICE, prices[i]);
+            map.put(NUMBER, numbers[i]);
             map.put(DETAIL, details[i]);
 
             items.add(map);
@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
         SimpleAdapter adapter1 = new SimpleAdapter(this,
                 items,
                 R.layout.item_detail,
-                new String[]{NAME, PRICE, DETAIL},
-                new int[]{R.id.tv_name, R.id.tv_price, R.id.tv_detail}
+                new String[]{NAME, NUMBER, DETAIL},
+                new int[]{R.id.name, R.id.number, R.id.detail}
         );
         list.setAdapter(adapter1);
     }
