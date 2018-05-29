@@ -23,9 +23,8 @@ public class MainActivity extends AppCompatActivity implements WordItemFragment.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
+
         setContentView(com.example.words.R.layout.activity_main);
 
 
@@ -39,8 +38,6 @@ public class MainActivity extends AppCompatActivity implements WordItemFragment.
                 InsertDialog();
             }
         });
-
-
     }
 
     @Override
@@ -102,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements WordItemFragment.
                         String strWord = ((EditText) tableLayout.findViewById(com.example.words.R.id.txtWord)).getText().toString();
                         String strMeaning = ((EditText) tableLayout.findViewById(com.example.words.R.id.txtMeaning)).getText().toString();
                         String strSample = ((EditText) tableLayout.findViewById(com.example.words.R.id.txtSample)).getText().toString();
+
                         WordsDB wordsDB=WordsDB.getWordsDB();
                         wordsDB.Insert(strWord, strMeaning, strSample);
                         RefreshWordItemFragment();
@@ -177,7 +175,7 @@ public class MainActivity extends AppCompatActivity implements WordItemFragment.
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        String txtSearchWord = ((EditText) tableLayout.findViewById(com.example.words.R.id.txtSearchWord)).getText().toString();
+                        String txtSearchWord = ((EditText) tableLayout.findViewById(com.example.words.R.id.txtSearchWord)).getText().toString();//获取输入单词
                         RefreshWordItemFragment(txtSearchWord);
                     }
                 })

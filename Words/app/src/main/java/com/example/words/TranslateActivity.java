@@ -46,12 +46,12 @@ public class TranslateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_translate);
         initView();
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(view.getId()==R.id.id_transButton){
                     sendHttpURLConnection();
-
                 }
             }
         });
@@ -93,7 +93,7 @@ public class TranslateActivity extends AppCompatActivity {
                     });
 
                 try {
-                    URL url = new URL(apiUrl+ URLEncoder.encode(transContent,"utf8"));
+                    URL url = new URL(apiUrl+ URLEncoder.encode(transContent,"utf8"));//把需要搜索的单词拼到有道搜索的API
                     connection = (HttpURLConnection)url.openConnection();
                     connection.setRequestMethod("GET");
                     connection.connect();
@@ -105,6 +105,7 @@ public class TranslateActivity extends AppCompatActivity {
                         response.append(line);
 
                     }
+
                     JSONObject transJSON = new JSONObject(response.toString());
 
                     String errorCode = transJSON.getString("errorCode");
@@ -113,6 +114,7 @@ public class TranslateActivity extends AppCompatActivity {
                         JSONArray translation = transJSON.getJSONArray("translation");
                         JSONObject basic = transJSON.getJSONObject("basic");
                         JSONArray web =transJSON.getJSONArray("web");
+
 
                         JSONArray explains = basic.getJSONArray("explains");
                         tvMsg="原文："+query;
@@ -139,7 +141,9 @@ public class TranslateActivity extends AppCompatActivity {
     }
     private void RefreshWordItemFragment() {
         WordItemFragment wordItemFragment = (WordItemFragment) getFragmentManager().findFragmentById(com.example.words.R.id.wordslist);
+
         wordItemFragment.refreshWordsList();
+
     }
 }
 

@@ -77,9 +77,9 @@ public class WordItemFragment extends ListFragment {
     }
 
     public void refreshWordsList(String strWord) {
-        WordsDB wordsDB=WordsDB.getWordsDB();
+        WordsDB wordsDB=WordsDB.getWordsDB();//实例化数据库
         if (wordsDB != null) {
-            ArrayList<Map<String, String>> items = wordsDB.SearchUseSql(strWord);
+            ArrayList<Map<String, String>> items = wordsDB.SearchUseSql(strWord);//调用数据库自带的方法进行模糊查询，并将查询结果放到arraylist
             if(items.size()>0){
 
                 SimpleAdapter adapter = new SimpleAdapter(getActivity(), items, com.example.words.R.layout.item,

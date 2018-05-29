@@ -24,8 +24,6 @@ public class EnglishWeb extends AppCompatActivity {
         webView.getSettings().setBuiltInZoomControls(true);
 
         webView.setWebChromeClient(new WebChromeClient());
-        webView.loadUrl("http://www.bbc.com/");
-
-
+        webView.loadUrl("https://www.baidu.com/");
     }
 }
